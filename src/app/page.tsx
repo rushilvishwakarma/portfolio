@@ -14,7 +14,7 @@ const BLUR_FADE_DELAY = 0.03;
 
 export default function Page() {
   return (
-    <main className="relative flex flex-col min-h-[100dvh] space-y-10">
+    <main className="relative flex flex-col min-h-[100dvh] space-y-4 pt-6">
       <CanvasCursor />
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
@@ -179,7 +179,7 @@ export default function Page() {
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Want to connect via chat?{" "}
                 <Link
-                  href={"https://www.instagram.com/relive.rushil/"}
+                  href={"https://www.instagram.com/whyfeverdream/"}
                   className="text-blue-500 hover:underline"
                 >
                   Direct Message me on Instagram

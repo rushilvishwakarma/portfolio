@@ -100,10 +100,37 @@ export const DATA = {
 
   ],
   projects: [
+        {
+      title: "The Wall",
+      href: "https://wall-rait.vercel.app/",
+      dates: "August 2024",
+      active: true,
+      description:
+        "The Wall is the official literary platform of RAIT, showcasing student creativity through blogs, reviews, digital magazines, and memorable moments from campus life. It serves as a space for expression, reflection, and storytelling, all presented in a clean, accessible design.",
+      technologies: [
+        "React",
+        "Next.js",
+        "Zustand",
+        "Sanity CMS",
+      ],
+      links: [
+        {
+          type: "Live Demo",
+          href: "https://wall-rait.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: {
+        src: "https://cdn.sanity.io/images/e71ra3i6/production/3436944d31f4928a5a4a550dee4cda79cbd4d40b-1280x720.png",
+        width: 800,
+        height: 800,
+      },
+      video: "",
+    },
     {
       title: "Morphous",
       href: "https://hyperglass.github.io/morphous/",
-      dates: "March 2024 - April 2024",
+      dates: "March 2022 - June 2022",
       active: true,
       description:
         "Created open-source documentation and a template for Custom ROM installation and fixes, designed to help anyone get started and improve their journey with Custom ROMs from scratch.",
@@ -115,18 +142,13 @@ export const DATA = {
       ],
       links: [
         {
-          type: "Website",
+          type: "Live Demo",
           href: "https://hyperglass.github.io/morphous/",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Index Source",
           href: "https://github.com/hyperglass/morphous",
-          icon: <Icons.github className="size-3" />,
-        },
-        {
-          type: "Template",
-          href: "https://github.com/hyperglass/morphous-template",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -138,24 +160,23 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Lurnit",
+      title: "Lurnit [Frontend]",
       href: "https://lurnit.netlify.app/",
       dates: "April 2024 - June 2024",
       active: true,
       description:
-        "Created open-source documentation and a template for Custom ROM installation and fixes, designed to help anyone get started and improve their journey with Custom ROMs from scratch.",
+        "A learning platform designed to help students access previous years' question papers with a clean and minimal UI. The platform allows users to upload their own question papers.",
       technologies: [
         "React",
         "Typescript",
         "TailwindCSS",
         "Next.js",
         "SQLite",
-        "TailwindCSS",
         "PocketBase",
       ],
       links: [
         {
-          type: "Website",
+          type: "Live Demo",
           href: "https://https://lurnit.netlify.app/",
           icon: <Icons.globe className="size-3" />,
         },
@@ -204,7 +225,7 @@ export const DATA = {
     },
     {
       title: "Custom ROM Exploration & Moderation",
-      dates: "September, 2023",
+      dates: "September, 2022",
       location: "Evolution X",
       description:
         "Learned a lot about Custom ROM Installation & Debugging. Currently Moderating for Evolution X community.",
@@ -230,59 +251,95 @@ export const DATA = {
       ],
     },
     {
-      title: "Custom ROM Documentation Website",
-      dates: "March, 2024",
+      title: "Custom ROM Documentation Live Demo",
+      dates: "March, 2022",
       location: "Evolution X",
       description:
-        "Created open source Documentation & a template about Custom ROM Installation & Fixes.",
+        "Created a documentation about Custom ROM Installation & Fixes.",
       image:
         "https://i.ibb.co/rkHDpYN/morphous-logo-prototype-dark.png",
       links: [
+      ],
+    },
+    {
+      title: "Tangerine - Local file conversion tool",
+      dates: "January, 2023",
+      location: "Mini Project",
+      description:
+        "A tool for converting local files between different formats with a Beautiful UI.",
+      image:
+        "https://tangerine-convert.vercel.app/orange-slice-white.svg",
+      links: [
         {
-          title: "Morphous",
-          icon: <Globe className="h-4 w-4" />,
-          href: "https://hyperglass.github.io/morphous/",
+          title: "Live Demo",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://tangerine-convert.vercel.app/",
         },
       ],
     },
     {
-      title: "Frontend Development for Lurnit",
-      dates: "April, 2024",
-      location: "Learning Platform",
+      title: "Blaze Convert - Rag Based File & Unit Conversion Teaching Ai Assistant",
+      dates: "January, 2023",
+      location: "Mini Project",
       description:
-        "A Learning Website for previous years’ question papers with a clean and minimal UI.",
+        "A tool for converting local files between different formats.",
       image:
-        "",
+        "https://blaze-convert.vercel.app/flame.svg",
       links: [
         {
-          title: "Lurnit",
-          icon: <Globe className="h-4 w-4" />,
-          href: "https://lurnit.netlify.app/",
+          title: "Live Demo",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://blaze-convert.vercel.app/",
         },
       ],
     },
     {
-      title: "Script for Extracting data from PDF Files",
-      dates: "June, 2024",
-      location: "Python Language",
+      title: "The Wall RAIT",
+      dates: "August, 2024",
+      location: "Web Development & Design",
       description:
-        "Created a script for extracting Data from PDF Files, using libraries like pdfplumber & pandas.",
+        "Developed the official Live Demo, using technologies like Next.js, Tailwind CSS, Cloudinary, Zustand & Sanity CMS. Designed social media creatives and digital artwork, boosting online presence and community engagement.",
       image:
-        "",
+        "https://wall-rait.vercel.app/Wall_Logo.png",
       links: [
+        {
+          title: "Live Demo",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://the-wall-rait.vercel.app/",
+        },
       ],
     },
     {
-      title: "Blood Donation Website",
-      dates: "Currently working on...",
-      location: "(Prototype)",
+      title: "Google Developers Group RAIT",
+      dates: "October, 2024",
+      location: "Web Development Co-Head",
       description:
-        "",
+        "Designed and Developed the official Live Demo for GDG Hacktoberfest ‘24 & conducted Workshops.",
+      image:
+        "https://pbs.twimg.com/profile_images/1111678689228582913/t2k7QK3r_400x400.png",
+      links: [
+        {
+          title: "Live Demo",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://gdg-hacktoberfest.vercel.app/",
+        },
+      ],
+    },
+        {
+      title: "Traversal Playground - Algorithm Visualizer",
+      dates: "May, 2025",
+      location: "Web Development Co-Head",
+      description:
+        "State-of-the-art Algorithm visualizer made using ReactFlow, Zustand & ECMAScript.",
       image:
         "",
       links: [
+        {
+          title: "Live Demo",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://traversalplayground.vercel.app/",
+        },
       ],
     },
-
   ],
 } as const;
