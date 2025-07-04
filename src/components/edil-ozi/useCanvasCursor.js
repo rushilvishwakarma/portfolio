@@ -1,6 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const useCanvasCursor = () => {
+  const ctxRef = useRef(null);
+  const animationRef = useRef(null);
+  
   function n(e) {
     this.init(e || {});
   }
@@ -55,6 +58,9 @@ const useCanvasCursor = () => {
           (e *= E.tension);
     },
     draw: function () {
+      const ctx = ctxRef.current;
+      if (!ctx) return;
+      
       var e,
         t,
         n = this.nodes[0].x,
@@ -101,7 +107,8 @@ const useCanvasCursor = () => {
   }
 
   function render() {
-    if (ctx.running) {
+    const ctx = ctxRef.current;
+    if (ctx && ctx.running) {
       ctx.globalCompositeOperation = "source-over";
       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       ctx.globalCompositeOperation = "lighter";
@@ -112,17 +119,19 @@ const useCanvasCursor = () => {
         e.draw();
       }
       ctx.frame++;
-      window.requestAnimationFrame(render);
+      animationRef.current = window.requestAnimationFrame(render);
     }
   }
 
   function resizeCanvas() {
-    ctx.canvas.width = window.innerWidth - 20;
-    ctx.canvas.height = window.innerHeight;
+    const ctx = ctxRef.current;
+    if (ctx && ctx.canvas) {
+      ctx.canvas.width = window.innerWidth - 20;
+      ctx.canvas.height = window.innerHeight;
+    }
   }
 
-  var ctx,
-    f,
+  var f,
     e = 0,
     pos = {},
     lines = [],
@@ -142,7 +151,19 @@ const useCanvasCursor = () => {
   }
 
   const renderCanvas = function () {
-    ctx = document.getElementById("canvas").getContext("2d");
+    const canvas = document.getElementById("canvas");
+    if (!canvas) {
+      console.warn("Canvas element not found");
+      return;
+    }
+    
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      console.warn("Canvas context not available");
+      return;
+    }
+    
+    ctxRef.current = ctx;
     ctx.running = true;
     ctx.frame = 1;
     f = new n({
@@ -156,39 +177,44 @@ const useCanvasCursor = () => {
     document.body.addEventListener("orientationchange", resizeCanvas);
     window.addEventListener("resize", resizeCanvas);
     window.addEventListener("focus", () => {
-      if (!ctx.running) {
-        ctx.running = true;
+      if (ctxRef.current && !ctxRef.current.running) {
+        ctxRef.current.running = true;
         render();
       }
     });
     window.addEventListener("blur", () => {
-      ctx.running = true;
+      if (ctxRef.current) {
+        ctxRef.current.running = true;
+      }
     });
     resizeCanvas();
   };
 
   useEffect(() => {
+    // Ensure we're in the browser environment
+    if (typeof window === 'undefined') return;
+    
     const isPC = window.matchMedia("(pointer: fine)").matches; // Check for PC devices
     if (isPC) {
-      renderCanvas();
-    }
-
-    return () => {
-      ctx.running = false;
-      document.removeEventListener("mousemove", onMousemove);
-      document.removeEventListener("touchstart", onMousemove);
-      document.body.removeEventListener("orientationchange", resizeCanvas);
-      window.removeEventListener("resize", resizeCanvas);
-      window.removeEventListener("focus", () => {
-        if (!ctx.running) {
-          ctx.running = true;
-          render();
+      // Add a small delay to ensure the canvas element is mounted
+      const timer = setTimeout(() => {
+        renderCanvas();
+      }, 100);
+      
+      return () => {
+        clearTimeout(timer);
+        if (ctxRef.current) {
+          ctxRef.current.running = false;
         }
-      });
-      window.removeEventListener("blur", () => {
-        ctx.running = true;
-      });
-    };
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
+        document.removeEventListener("mousemove", onMousemove);
+        document.removeEventListener("touchstart", onMousemove);
+        document.body.removeEventListener("orientationchange", resizeCanvas);
+        window.removeEventListener("resize", resizeCanvas);
+      };
+    }
   }, []);
 };
 
