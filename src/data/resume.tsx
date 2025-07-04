@@ -142,11 +142,6 @@ export const DATA = {
       ],
       links: [
         {
-          type: "Live Demo",
-          href: "https://hyperglass.github.io/morphous/",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
           type: "Index Source",
           href: "https://github.com/hyperglass/morphous",
           icon: <Icons.github className="size-3" />,
