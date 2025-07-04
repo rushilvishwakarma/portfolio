@@ -326,6 +326,33 @@ export const DATA = {
       ],
     },
         {
+      title: "Rudhirsetu Seva Sanstha (Non-governmental organization) ",
+      dates: "May, 2025",
+      location: "Software Developer Intern",
+      description:
+        "Migrated and managed the content of the official Rudhirsetu NGO website using Sanity CMS.",
+      image:
+        "https://www.rudhirsetu.org/images/logo-dark.svg",
+      links: [
+        {
+          title: "Website",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://www.rudhirsetu.org/",
+        },
+      ],
+    },
+    {
+      title: "Railway Concession Project RAIT",
+      dates: "July 2024 - Present",
+      location: "Technical Team Member",
+      description:
+        "Optimized receipt print layout using Bootstrap, PHP and MySQL, ensuring properly aligned concession forms, and streamlined database operations.",
+      image:
+        "",
+      links: [
+      ],
+    },
+    {
       title: "Traversal Playground - Algorithm Visualizer",
       dates: "May, 2025",
       location: "Web Development Co-Head",
@@ -341,5 +368,6 @@ export const DATA = {
         },
       ],
     },
+
   ],
 } as const;
