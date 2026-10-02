@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400 700;
   font-display: block;
-  src: url(/GoogleSans.woff2) format("woff2");
+  src: url(/fonts/GoogleSans.woff2) format("woff2");
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-style: italic;
   font-weight: 400 700;
   font-display: block;
-  src: url(/GoogleSans-Italic.woff2) format("woff2");
+  src: url(/fonts/GoogleSans-Italic.woff2) format("woff2");
 }
 
 ::selection {

@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import { useScroll, useWheel } from "@use-gesture/react";
 import styles from "./radial-timeline.module.css";
-import type { Line, Lines, Item } from "./data";
+import type { Line as LineData, Lines, Item } from "./data";
 import { DATA, loremIpsum } from "./data";
 import { getRandomItem } from "./get-random-item";
 import { clamp } from "./clamp";
@@ -279,7 +279,13 @@ export function Provider({
 
 ////////////////////////////////////////////////////////////////////////////////
 
-export function Line({ dataIndex, variant, rotation, offsetX, offsetY }: Line) {
+export function Line({
+  dataIndex,
+  variant,
+  rotation,
+  offsetX,
+  offsetY,
+}: LineData) {
   const {
     zoom,
     hoveredIndex,
@@ -532,7 +538,8 @@ export function useLines(): [Lines, Constants] {
 
   useEvent("resize", () => {
     const widthScale = window.innerWidth / 960;
-    const heightScale = window.innerHeight / 640;
+    // Dial + labels are ~830px tall at scale 1, so shrink below that
+    const heightScale = window.innerHeight / 840;
     const newScale = clamp(Math.min(widthScale, heightScale), [0.4, 1]);
     setRootScale(newScale);
   });
